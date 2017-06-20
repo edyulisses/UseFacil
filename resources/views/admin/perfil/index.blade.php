@@ -28,11 +28,11 @@
 	                    <tbody>
 	                      <tr>
 	                        <td>Criado</td>
-	                        <td>{{ $user->created_at }}</td>
+	                        <td>{{ dateUsToBr($user->created_at) }}</td>
 	                      </tr>
 	                      <tr>
 	                        <td>Atualizado</td>
-	                        <td>{{ $user->updated_at }}</td>
+	                        <td>{{ dateUsToBr($user->updated_at) }}</td>
 	                      </tr>
 	                      <tr>
 	                        <td>Email</td>
