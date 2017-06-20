@@ -20,4 +20,5 @@ Route::auth();
 ## Put this line in auth;
 Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
 
-Route::get('/admin', 'HomeController@index');
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/perfil', 'PerfilController@index');

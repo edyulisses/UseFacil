@@ -25,6 +25,10 @@
         .fa-btn {
             margin-right: 6px;
         }
+
+        #page-content-wrapper h1{
+            font-weight: 300;
+        }
     </style>
 
     @yield('style')
@@ -69,7 +73,9 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/') }}">Institucional</a></li>
+                                <li><a href="{{ url('/admin/perfil') }}"><i class="fa fa-user" aria-hidden="true"></i> Perfil do Usuário</a></li>
+                                <li><a href="{{ url('/') }}"><i class="fa fa-globe" aria-hidden="true"></i> Institucional</a></li>
+                                <li role="separator" class="divider"></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Sair</a></li>
                             </ul>
                         </li>
