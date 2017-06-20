@@ -14,6 +14,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/simple-sidebar.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/admin.css') }}">
 
     <style>
         body {
@@ -29,7 +31,8 @@
 
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="position:fixed;">
         <div class="container-fluid">
             <div class="navbar-header">
 
@@ -40,17 +43,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a href="javascript:void(0);" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/admin') }}">
-                    USEMODA
-                </a>
+                <img class="navbar-brand" src="{{ URL::asset('assets/imgs/logo-usemoda-admin.png') }}">
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar 
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></li>
                 </ul>
                 -->
 
@@ -77,11 +79,108 @@
         </div>
     </nav>
 
-    @yield('content')
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-border"><a href="{{ url('/home') }}" id="painel"><i class="fa fa-tachometer" aria-hidden="true"></i> Painel</a></li>
+                <li class="sidebar-nav-border"><a href="#" class="tree-toggler" id="loja"><img src="{{ URL::asset('assets/imgs/icon-loja.svg') }}" class="sidebar-nav-icon-svg"> Loja <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                    <ul class="tree">
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/produtos') }}" id="loja-produtos"><i class="fa fa-cubes" aria-hidden="true"></i> Produtos</a></li>
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/design-da-loja') }}" id="loja-design-da-loja"><i class="fa fa-paint-brush" aria-hidden="true"></i> Design da Loja</a></li>
+                        <!--
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/banners') }}" id="loja-banners"><i class="fa fa-picture-o" aria-hidden="true"></i> Banners</a></li>
+                        -->
+                        
+                        <!--
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/seo-google') }}" id="loja-seo-google"><i class="fa fa-pie-chart" aria-hidden="true"></i> SEO Google</a></li>
+                        -->
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/configuracoes') }}" id="loja-configuracoes"><i class="fa fa-cogs" aria-hidden="true"></i> Configurações</a></li>
+                        <li><a href="{{ url('/loja/usuarios') }}" id="loja-usuarios"><i class="fa fa-user-plus" aria-hidden="true"></i> Usuários</a></li>
+                        <li><a href="{{ url('/loja/usuarios') }}" id="loja-auditoria"><i class="fa fa-user-plus" aria-hidden="true"></i> Auditoria</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-nav-border"><a href="#" class="tree-toggler" id="vendas"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Vendas <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                    <ul class="tree">
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/vendas/pedidos') }}" id="vendas-pedidos"><i class="fa fa-check-square" aria-hidden="true"></i> Pedidos</a></li>
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/vendas/clientes') }}" id="vendas-clientes"><i class="fa fa-users" aria-hidden="true"></i> Clientes</a></li>
+                        <li><a href="{{ url('/vendas/depoimentos') }}" id="vendas-depoimentos"><i class="fa fa-commenting" aria-hidden="true"></i> Depoimentos</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-nav-border"><a href="#" class="tree-toggler" id="vendas"><i class="fa fa-bullhorn" aria-hidden="true"></i> Marketing <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                    <ul class="tree">
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/vendas/pedidos') }}" id="vendas-pedidos"><i class="fa fa-check-square" aria-hidden="true"></i> SEO Google</a></li>
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/vendas/clientes') }}" id="vendas-clientes"><i class="fa fa-users" aria-hidden="true"></i> Redes Sociais</a></li>
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/cupons') }}" id="loja-cupons"><i class="fa fa-tags" aria-hidden="true"></i> Cupons</a></li>
+                        <li><a href="{{ url('/vendas/depoimentos') }}" id="vendas-depoimentos"><i class="fa fa-commenting" aria-hidden="true"></i> Depoimentos</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-nav-border"><a href="{{ url('/financeiro') }}" id="financeiro"><i class="fa fa-money" aria-hidden="true"></i> Financeiro</a></li>
+                <li class="sidebar-nav-border"><a href="{{ url('/relatorios') }}" id="relatorios"><i class="fa fa-file-text-o" aria-hidden="true"></i> Relatórios</a></li>           
+                <li class="sidebar-nav-border"><a href="{{ url('/analitycs') }}" id="analitycs"><i class="fa fa-line-chart" aria-hidden="true"></i> Analitycs</a></li> 
+                <li class="sidebar-nav-border"><a href="{{ url('/aplicativos-servicos') }}" id="aplicativos-servicos"><i class="fa fa-rocket" aria-hidden="true"></i> Aplicativos & Serviços</a></li>
+                <li class="sidebar-nav-border"><a href="{{ url('/relatar-melhorias') }}" id="relatar-melhorias"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Relatar Melhorias</a></li>   
+            </ul>
+            <div class="sidebar-footer">&copy <?php echo date('Y'); ?> USEMODA - V0.1</div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                
+                @yield('content')
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="{{ URL::asset('assets/jsc/jquery.cookie.js') }}"></script>
+    <script src="{{ URL::asset('assets/jsc/moment.min.js') }}"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $(document).ready(function () {
+
+            /* MENU LEFT */
+            if($.cookie('menu_toggle')=='toggled'){
+                $("#wrapper").toggleClass("toggled");
+                $.cookie('menu_toggle', 'toggled');
+            }else{
+                $(".sidebar-footer").hide();
+            };
+
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+                if($.cookie('menu_toggle')=='toggled'){
+                    $.cookie('menu_toggle', '');
+                    $(".sidebar-footer").hide(150);
+                }else{
+                    $.cookie('menu_toggle', 'toggled');
+                    $(".sidebar-footer").show(150);
+                };                
+            });
+
+            $('.tree-toggler').parent().children('ul.tree').toggle(0);
+
+            $('.tree-toggler').click(function () {
+                $(this).parent().children('ul.tree').toggle(150);
+            });
+
+
+        });    
+
+
+
+    </script>
     
     @yield('script')
 

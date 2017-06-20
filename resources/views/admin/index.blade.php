@@ -5,7 +5,7 @@
 
 @section('content')
 <section>
-    Painel de Controle
+    <h1 style="font-weight: 300;">Painel de Controle</h1>
 </section>
 @endsection
 
