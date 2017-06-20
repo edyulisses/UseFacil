@@ -90,21 +90,14 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-nav-border"><a href="{{ url('/home') }}" id="painel"><i class="fa fa-tachometer" aria-hidden="true"></i> Painel</a></li>
+                <li class="sidebar-nav-border"><a href="{{ url('/admin') }}" id="painel"><i class="fa fa-tachometer" aria-hidden="true"></i> Painel</a></li>
                 <li class="sidebar-nav-border"><a href="#" class="tree-toggler" id="loja"><img src="{{ URL::asset('assets/imgs/icon-loja.svg') }}" class="sidebar-nav-icon-svg"> Loja <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
                     <ul class="tree">
-                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/produtos') }}" id="loja-produtos"><i class="fa fa-cubes" aria-hidden="true"></i> Produtos</a></li>
-                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/design-da-loja') }}" id="loja-design-da-loja"><i class="fa fa-paint-brush" aria-hidden="true"></i> Design da Loja</a></li>
-                        <!--
-                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/banners') }}" id="loja-banners"><i class="fa fa-picture-o" aria-hidden="true"></i> Banners</a></li>
-                        -->
-                        
-                        <!--
-                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/seo-google') }}" id="loja-seo-google"><i class="fa fa-pie-chart" aria-hidden="true"></i> SEO Google</a></li>
-                        -->
-                        <li class="sidebar-nav-border-inner"><a href="{{ url('/loja/configuracoes') }}" id="loja-configuracoes"><i class="fa fa-cogs" aria-hidden="true"></i> Configurações</a></li>
-                        <li><a href="{{ url('/loja/usuarios') }}" id="loja-usuarios"><i class="fa fa-user-plus" aria-hidden="true"></i> Usuários</a></li>
-                        <li><a href="{{ url('/loja/usuarios') }}" id="loja-auditoria"><i class="fa fa-user-plus" aria-hidden="true"></i> Auditoria</a></li>
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/admin/loja/produtos') }}" id="loja-produtos"><i class="fa fa-cubes" aria-hidden="true"></i> Produtos</a></li>
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/admin/loja/design-da-loja') }}" id="loja-design-da-loja"><i class="fa fa-paint-brush" aria-hidden="true"></i> Design da Loja</a></li>
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/admin/loja/configuracoes') }}" id="loja-configuracoes"><i class="fa fa-cogs" aria-hidden="true"></i> Configurações</a></li>
+                        <li class="sidebar-nav-border-inner"><a href="{{ url('/admin/loja/usuarios') }}" id="loja-usuarios"><i class="fa fa-user-plus" aria-hidden="true"></i> Usuários</a></li>
+                        <li><a href="{{ url('/admin/loja/auditoria') }}" id="loja-auditoria"><i class="fa fa-user-secret" aria-hidden="true"></i> Auditoria</a></li>
                     </ul>
                 </li>
                 <li class="sidebar-nav-border"><a href="#" class="tree-toggler" id="vendas"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Vendas <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>

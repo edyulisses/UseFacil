@@ -22,3 +22,9 @@ Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name(
 
 Route::get('/admin', 'AdminController@index');
 Route::get('/admin/perfil', 'PerfilController@index');
+
+Route::get('/admin/loja/produtos',       'LojaProdutosController@index');
+Route::get('/admin/loja/design-da-loja', 'LojaDesignDaLojaController@index');
+Route::get('/admin/loja/configuracoes',  'LojaConfiguracoesController@index');
+Route::get('/admin/loja/usuarios',       'LojaUsuariosController@index');
+Route::get('/admin/loja/auditoria',      'LojaAuditoriaController@index');
