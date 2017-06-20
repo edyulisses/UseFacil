@@ -13,6 +13,7 @@
 	</div>
 
 	@foreach($users as $user)
+
 		<div class="row">
 			<div class="panel panel-default">
 	            <div class="panel-heading">
@@ -41,9 +42,13 @@
 	                      <tr>
 	                        <td>Telefones</td>
 	                        <td>
-	                        	(011) 3543.1234 (Telefone)<br><br>
-	                        	(011) 9 9999.9999 (Celular)
+	                        	<i class="fa fa-phone" aria-hidden="true"></i> {{ $user->phone }} (Telefone)<br>
+	                        	<i class="fa fa-mobile" aria-hidden="true"></i> {{ $user->cellphone }} (Celular)
 	                        </td>      
+	                      </tr>
+	                      <tr>
+	                        <td>WhatsApp</td>
+	                        <td><i class="fa fa-whatsapp" aria-hidden="true"></i> {{ $user->whatsapp }}</td>      
 	                      </tr> 
 	                    </tbody>
 	                  </table>
@@ -52,6 +57,7 @@
 	            </div>
 	        </div>
 		</div>
+
 	@endforeach
 
 </section>
