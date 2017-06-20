@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('institucional.index');
 });
 
 Route::auth();
 
+## Put this line in auth;
 Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/admin', 'HomeController@index');
