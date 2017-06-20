@@ -26,7 +26,8 @@ class PerfilController extends Controller
      */
     public function index(User $user)
     {
-        $users = $user->all();
+
+        $users = $user->where('id', auth()->user()->id)->get();
 
         return view('admin.perfil.index', compact('users'));
     }
