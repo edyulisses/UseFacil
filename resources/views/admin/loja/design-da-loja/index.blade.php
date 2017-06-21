@@ -12,7 +12,7 @@
 @section('content')
 <section>
 	<div class="row">
-    	<h1><i class="fa fa-cubes" aria-hidden="true"></i> Design da Loja</h1>
+    	<h1><i class="fa fa-paint-brush" aria-hidden="true"></i> Design da Loja</h1>
     </div>
 </section>
 @endsection
