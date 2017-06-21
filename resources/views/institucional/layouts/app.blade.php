@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>USEMODA Marketplace</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -14,13 +14,22 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+    <!-- Favicons -->
+    <link rel="icon" href="{{ URL::asset('assets/imgs/favicon-16.png') }}"  sizes="16x16"/>
+    <link rel="icon" href="{{ URL::asset('assets/imgs/favicon-32.png') }}"  sizes="32x32"/>
+    <link rel="icon" href="{{ URL::asset('assets/imgs/favicon-48.png') }}"  sizes="48x48"/>
+    <link rel="icon" href="{{ URL::asset('assets/imgs/favicon-64.png') }}"  sizes="64x64"/>
+    <link rel="icon" href="{{ URL::asset('assets/imgs/favicon-128.png') }}" sizes="128x128"/>
+
     <style>
         body {
            font-family: 'Roboto', sans-serif;
         }
-
         .fa-btn {
             margin-right: 6px;
+        }
+        .navbar-brand {
+            padding: 11px 15px;
         }
     </style>
 
@@ -41,9 +50,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    USEMODA
-                </a>
+                <a  href="{{ url('/') }}"><img class="navbar-brand" src="{{ URL::asset('assets/imgs/logo-usemoda.png') }}"></a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
