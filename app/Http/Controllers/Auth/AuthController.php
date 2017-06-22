@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use App\ActivationService;
+use App\Store;
 
 class AuthController extends Controller
 {
@@ -95,19 +96,45 @@ class AuthController extends Controller
 
     public function authenticated(Request $request, $user)
     {
+        
         if (!$user->activated) {
             $this->activationService->sendActivationMail($user);
             auth()->logout();
             return back()->with('warning', 'Você precisa confirmar sua conta. Nós lhe enviamos um código de ativação, por favor, verifique seu e-mail.');
         }
+
+        /* 
+         * Verifica se possui loja cadastrada 
+         * Quando Faz Login
+        */ 
+
+        if (!$user->store) {
+            return redirect('/admin/loja');
+        }
+
         return redirect()->intended($this->redirectPath());
     }
 
     public function activateUser($token)
     {
+
+
+        /* 
+         * Verifica se possui loja cadastrada 
+         * Quando Ativa por E-Mail
+        */
+
         if ($user = $this->activationService->activateUser($token)) {
-            auth()->login($user);
-            return redirect($this->redirectPath());
+            
+            $json_output = json_decode($user, true );
+
+            if ($json_output['store']=='0') {
+                auth()->logout();
+                return redirect('/admin/loja');
+            }else{
+                auth()->login($user);
+                return redirect($this->redirectPath());
+            }
         }
         abort(404);
     }      

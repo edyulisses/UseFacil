@@ -31,6 +31,20 @@
         .navbar-brand {
             padding: 11px 15px;
         }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #fff !important;
+            font-size: 10px;
+        }
+        .footer .social{
+            font-size: 20px;
+            margin: 0 0 5px;
+        }       
     </style>
 
     @yield('style')
@@ -50,7 +64,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a  href="{{ url('/') }}"><img class="navbar-brand" src="{{ URL::asset('assets/imgs/logo-usemoda.png') }}"></a>
+                <a  href="{{ url('/') }}"><img class="navbar-brand" src="{{ URL::asset('assets/imgs/logo-usemoda-admin.png') }}"></a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -64,8 +78,10 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
+                        <!--
                         <li><a href="{{ url('/login') }}">Acesso</a></li>
                         <li><a href="{{ url('/register') }}">Registrar</a></li>
+                        -->
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -84,6 +100,20 @@
     </nav>
 
     @yield('content')
+
+    <footer class="footer">
+      <div class="container">
+
+        <p class="social">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </p>
+
+        <p>&copy 2017 - USEMODA - Todos os Direitos Reservados.</p>
+      </div>
+    </footer>
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
